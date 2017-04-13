@@ -139,7 +139,7 @@ int main()
         fillInform(&DEFIB[0],&defibr);
         //is thought that first the nearest
         distance_current = calculateDistance(&defibr);
-        //printf("%f %s\n",distance_current,defibr.name);
+        fprintf(stderr, "%f %s\n",distance_current,defibr.name);
         if(i == 0)
         {
             innit(&min);
