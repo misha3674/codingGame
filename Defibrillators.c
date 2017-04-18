@@ -3,6 +3,8 @@
 #include <string.h>
 #include <math.h>
 
+#define M_PI   3.14159265358979323846
+double ratio = M_PI/180; 
 /**
  * Auto-generated code below aims at helping you parse
  * the standard input according to the problem statement.
@@ -99,8 +101,8 @@ double calculateDistance(sDef* d)
     double distance = 0.f;
     double x = 0.f;
     double y = 0.f;
-    double dlon = atof(d->lon);
-    double dlat = atof(d->lat);
+     double dlon = strtold(d->lon,0)*ratio;
+    double dlat  = strtold(d->lat,0)*ratio;
     // check work of atof
     x = (g_vlon -  dlon)*cos((g_vlat+dlat)/2.0);
     y = (g_vlat - dlat);
@@ -126,8 +128,8 @@ int main()
     // change input data
     turn_comma_into_dot(LON);
     turn_comma_into_dot(LAT);
-    g_vlon = atof(&LON[0]);
-    g_vlat = atof(&LAT[0]);
+    g_vlon = strtold(&LON[0],0)*ratio;
+    g_vlat = strtold(&LAT[0],0)*ratio;
     int N;
     scanf("%d", &N); fgetc(stdin);
     for (int i = 0; i < N; i++) 
